@@ -1,0 +1,22 @@
+{
+  "name": "curso-de-fundamentos-de-typescript-2020",
+  "version": "1.0.0",
+  "description": "Curso de Platzi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaleedGutierrez/Curso-de-Fundamentos-de-TypeScript-2020.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Galeed Gutierrez <galeedeveloper@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GaleedGutierrez/Curso-de-Fundamentos-de-TypeScript-2020/issues"
+  },
+  "homepage": "https://github.com/GaleedGutierrez/Curso-de-Fundamentos-de-TypeScript-2020#readme"
+}
