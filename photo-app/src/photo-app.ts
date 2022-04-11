@@ -1,13 +1,29 @@
-export {};
-
-enum PhotoOrientation {
+export enum PhotoOrientation {
     Landscape,
     Portrait,
     Square,
     Panorama,
 }
 
-abstract class Item {
+export class User {
+    #album: Album[];
+    
+    constructor (
+        private id: number,
+        private username: string,
+        private firstName: string,
+        private isPro: boolean,
+    ) {
+        this.#album = [];
+    }
+
+    addAlbum (album: Album) {
+        this.#album.push(album);
+        console.log('this.#album:',this.#album);
+    }
+}
+
+export abstract class Item {
     public static photoOrientation = PhotoOrientation;
     readonly #id: number;
     #title: string;
@@ -34,12 +50,19 @@ abstract class Item {
     }
 }
 
-class Picture extends Item{
+export class Picture extends Item{
     // Propiedades 
     #orientation: PhotoOrientation;
+    #date: string;
 
-    constructor (id: number, title: string, orientation: PhotoOrientation) {
+    constructor (
+        id: number, 
+        title: string, 
+        date: string,
+        orientation: PhotoOrientation
+    ) {
         super(id, title);
+        this.#date = date;
         this.#orientation = orientation;
     }
 
@@ -59,7 +82,7 @@ class Picture extends Item{
     }
 }
 
-class Album extends Item {
+export class Album extends Item {
     #pictures: Picture[];
 
     public constructor(id: number, title: string) {
@@ -81,25 +104,3 @@ class Album extends Item {
         console.table({object});
     }
 }
-
-const album: Album = new Album(1, 'Personal Pictures');
-const picture: Picture = new Picture(2, 'Platzi session', PhotoOrientation.Square);
-// picture.toString();
-album.addPicture(picture);
-// console.table({album});
-
-// Accediendo a los miembrps publicos
-// picture.id = 100;
-picture.title = 'Another title'; // public
-album.title = 'Personal Activities';
-// console.table(album);
-// console.table(picture);
-// picture.showAll('picture');
-// album.showAll('album');
-
-// const item = new Item(1, 'Teste title'); // Error
-// console.log('item.id:',item.id);
-// console.log('item.title:', item.title);
-
-// Probar el miembro estatico
-console.log('PhotoOrientation:', Picture.photoOrientation.Landscape);
